@@ -15,11 +15,13 @@ const listaSelecaoPokedevs = document.querySelectorAll(".pokedev");
 listaSelecaoPokedevs.forEach(pokedev =>{
     pokedev.addEventListener("click", () => {
        //PASSO 3 - remover a classe aberto só do cartão que tá aberto
-       const cartaoPokedevAberto = document.querySelector(".aberto");
-       cartaoPokedevAberto.classList.remove("aberto");
+       esconderCartaoPokedev()
        //PASSO 4 - ao clicar em um pokedev da listagem pegamos o id desse pokedev pra saber qual cartão abrir
        const idPokedevSelecionado = pokedev.attributes.id.value;
+       
        const idDoCartaoPokedevParaAbrir = "cartao-" + idPokedevSelecionado;
+       console.log(idDoCartaoPokedevParaAbrir);
+       
        const cartaoPokedevParaAbrir = document.getElementById(idDoCartaoPokedevParaAbrir);
        cartaoPokedevParaAbrir.classList.add("aberto");
 
@@ -32,5 +34,8 @@ listaSelecaoPokedevs.forEach(pokedev =>{
        pokedevSelecionadoNalistagem.classList.add("ativo");
    })
 })
-
+function esconderCartaoPokedev (){
+    const cartaoPokedevAberto = document.querySelector(".aberto");
+    cartaoPokedevAberto.classList.remove("aberto");
+}
 
